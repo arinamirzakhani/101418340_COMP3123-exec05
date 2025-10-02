@@ -1,0 +1,17 @@
+{
+  "name": "week05_lab_exercise05",
+  "version": "1.0.0",
+  "description": "Express.js Basics with Routing - Exec 05",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "author": "101418340",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
+
+
