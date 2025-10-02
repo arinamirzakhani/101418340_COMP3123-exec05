@@ -68,13 +68,16 @@ You put, say, all user endpoints in routes/users.js, add any user-specific middl
 
 - How would you implement error handling in the Express routes to ensure that any issues (such as file not found or server errors) are appropriately handled? Provide an example.
 
+Let routes do their thing, and if something breaks, pass the problem to one place. In a route, wrap risky code in try/catch and call next(err). At the end, add a 404 handler for unknown paths and a single error middleware (err, req, res, next) that logs the issue and returns a clean message like Server Error. One funnel, consistent responses, easier debugging.
+
 ---
 
 #### Section C: Bonus
 
 **7. Dynamic Port Binding in Express.js**
 
-- Explain how the `app.listen(process.env.port || 8081)` line works and why it's useful in production environments:In Express, you handle errors with a final middleware that has four parameters (err, req, res, next). Inside routes, call next(err) (or throw) and the centralized handler sends a consistent response.
+- Explain how the `app.listen(process.env.port || 8081)` line works and why it's useful in production environments:
+app.listen(process.env.PORT || 8081) means: use the port the hosting platform gives you, or use 8081 on your laptop. That makes your app run anywhere without code changes. (Use uppercase PORT.)
 
 ---
 # Submission Guideline
